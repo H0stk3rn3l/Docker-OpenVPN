@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN \
     apt update && \
     apt upgrade -y && \
-    apt install iptables -y && \
+    apt install iptables sudo -y && \
     apt install ufw -y && \
     apt install openvpn -y && \
     apt install git -y && \
@@ -30,3 +30,4 @@ RUN \
 
 # docker build github.com/H0stk3rn3l/Docker-OpenVPN -t openvpn-v0.1
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
+# docker run --cap-add=NET_ADMIN -it ubuntu:16.04
