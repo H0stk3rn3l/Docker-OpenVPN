@@ -12,7 +12,7 @@ RUN \
     wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz && \
     tar xvf EasyRSA-3.0.4.tgz && \
     cd EasyRSA-3.0.4/ && \
-    ./easyrsa init-pki && \
+    ./easyrsa init-pki -i server && \
     ./easyrsa gen-req server nopass && \
     sudo cp /pki/private/server.key /etc/openvpn/ && \
     # Clone the github folder to download conf.file and handle it
