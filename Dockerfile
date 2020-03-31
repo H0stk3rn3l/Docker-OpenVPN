@@ -13,7 +13,7 @@ RUN \
     tar xvf EasyRSA-3.0.4.tgz && \
     cd EasyRSA-3.0.4/ && \
     ./easyrsa init-pki && \
-    server && \
+     && \
     ./easyrsa gen-req server nopass && \
     sudo cp /pki/private/server.key /etc/openvpn/ && \
     # Clone the github folder to download conf.file and handle it
@@ -39,4 +39,4 @@ RUN \
 
 # docker build github.com/H0stk3rn3l/Docker-OpenVPN -t openvpn-v0.1
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
-# docker run --cap-add=NET_ADMIN -it ubuntu
+# docker run --cap-add=NET_ADMIN -it imagename
