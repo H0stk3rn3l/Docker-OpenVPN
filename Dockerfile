@@ -7,6 +7,13 @@ RUN \
     apt install ufw -y && \
     apt install openvpn -y && \
     apt install git -y && \
+    # Download EasyRSA and configure
+    wget -P ~/ https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz && \
+    tar xvf EasyRSA-3.0.4.tgz && \
+    cd EasyRSA-3.0.4/ && \
+    ./easyrsa init-pki && \
+    ./easyrsa gen-req server nopass && \
+    sudo cp /pki/private/server.key /etc/openvpn/ && \
     # Clone the github folder to download conf.file and handle it
     git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
     cp Docker-OpenVPN/Config/server.conf.gz /etc/openvpn/ && \
