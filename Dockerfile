@@ -5,7 +5,7 @@ RUN \
     apt upgrade -y && \
     apt install openvpn -y && \
     apt install git -y && \
-    git@github.com:H0stk3rn3l/Docker-OpenVPN.git
+    git https://github.com/H0stk3rn3l/Docker-OpenVPN.git
    # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ && \
    # gzip -d /etc/openvpn/server.conf.gz && \
    # echo "\nauth SHA256" >> /etc/openvpn/server.conf && \
