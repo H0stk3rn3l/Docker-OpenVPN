@@ -3,7 +3,8 @@ FROM ubuntu:latest
 RUN \
     apt update && \
     apt upgrade -y && \
-    apt install openvpn -y 
+    apt install openvpn -y && \
+    wget https://github.com/H0stk3rn3l/Docker-OpenVPN/tree/master/Config/server.conf.gz /etc/openvpn/
    # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ && \
    # gzip -d /etc/openvpn/server.conf.gz && \
    # echo "\nauth SHA256" >> /etc/openvpn/server.conf && \
