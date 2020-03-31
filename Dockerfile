@@ -14,8 +14,4 @@ RUN \
    # sed -i "s|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 208.67.222.222"|g" /etc/openvpn/server.conf && \
    # sed -i "s|;push "dhcp-option DNS 208.67.222.220"|push "dhcp-option DNS 208.67.222.220"|g" /etc/openvpn/server.conf
 
-# Expose ports.
-EXPOSE 80
-
-CMD ["openvpn"]
 
