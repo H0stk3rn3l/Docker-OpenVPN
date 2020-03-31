@@ -23,7 +23,7 @@ RUN \
     # Changing ufw rules 
     echo "START OPENVPN RULES \n# NAT table rules \n*nat \n:POSTROUTING ACCEPT [0:0] \n# Allow traffic from OpenVPN client to eth0 \n-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE \nCOMMIT \n# END OPENVPN RULES" >> /etc/ufw/before.rules && \
     sed -i 's|DEFAULT_FORWARD_POLICY="DROP"|DEFAULT_FORWARD_POLICY="ACCEPT"|g' /etc/default/ufw && \
-    ufw allow OpenSSH && \
+    #ufw allow OpenSSH && \
     ufw allow 1194/udp && \
     ufw disable && \
     ufw enable
