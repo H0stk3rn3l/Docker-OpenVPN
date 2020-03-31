@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN \
     apt update && \
     apt upgrade -y && \
-    apt install install iptables -y && \
+    apt install iptables -y && \
     apt install openvpn -y && \
     apt install git -y && \
     # Clone the github folder to download conf.file and handle it
