@@ -4,7 +4,7 @@ RUN \
     apt update && \
     apt upgrade -y && \
     apt install openvpn -y && \
-    wget https://github.com/H0stk3rn3l/Docker-OpenVPN/tree/master/Config/server.conf.gz /etc/openvpn/
+    wget https://github.com/H0stk3rn3l/Docker-Nginx
    # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ && \
    # gzip -d /etc/openvpn/server.conf.gz && \
    # echo "\nauth SHA256" >> /etc/openvpn/server.conf && \
@@ -16,3 +16,4 @@ RUN \
    # sed -i "s|;push "dhcp-option DNS 208.67.222.220"|push "dhcp-option DNS 208.67.222.220"|g" /etc/openvpn/server.conf
 
 
+# docker build github.com/H0stk3rn3l/Docker-OpenVPN -t openvpn-v0.1
