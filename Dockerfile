@@ -9,7 +9,7 @@ RUN \
     apt install openvpn -y && \
     apt install git -y && \
     # Download EasyRSA and configure
-    git clone https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz && \
+    wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz && \
     tar xvf EasyRSA-3.0.4.tgz && \
     cd EasyRSA-3.0.4/ && \
     ./easyrsa init-pki && \
@@ -38,4 +38,4 @@ RUN \
 
 # docker build github.com/H0stk3rn3l/Docker-OpenVPN -t openvpn-v0.1
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
-# docker run --cap-add=NET_ADMIN -it 
+# docker run --cap-add=NET_ADMIN -it ubuntu
