@@ -4,6 +4,7 @@ RUN \
     apt update && \
     apt upgrade -y && \
     apt install iptables sudo -y && \
+    apt install -y wget && \
     apt install ufw -y && \
     apt install openvpn -y && \
     apt install git -y && \
