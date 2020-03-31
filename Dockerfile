@@ -5,9 +5,9 @@ RUN \
     apt upgrade -y && \
     apt install openvpn -y && \
     apt install git -y && \
-    git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git
-   # cp /home/ubuntu/Docker-OpenVPN/Config/server.conf.gz /etc/openvpn/ && \
-   # gzip -d /etc/openvpn/server.conf.gz && \
+    git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
+    cp Docker-OpenVPN/Config/server.conf.gz /etc/openvpn/ && \
+    gzip -d /etc/openvpn/server.conf.gz 
    # rm -rf /home/ubuntu/Docker-OpenVPN
    # echo "\nauth SHA256" >> /etc/openvpn/server.conf && \
    # sed -i "s|dh dh2048.pem|dh dh.pem|g" /etc/openvpn/server.conf && \
