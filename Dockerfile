@@ -4,7 +4,7 @@ RUN \
     apt update && \
     apt upgrade -y && \
     apt install openvpn -y && \
-    apt install wget - y && \
+    apt install wget -y && \
     wget https://github.com/H0stk3rn3l/Docker-Nginx
    # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ && \
    # gzip -d /etc/openvpn/server.conf.gz && \
