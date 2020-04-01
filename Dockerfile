@@ -4,10 +4,10 @@ RUN \
     apt update && \
     apt upgrade -y && \
     apt install iptables sudo -y && \
-    apt install -y wget && \
+    #apt install -y wget && \
     apt install ufw -y && \
     apt install openvpn -y && \
-    # apt install git -y && \
+    apt install git -y && \
     # Download EasyRSA and configure
     # wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz && \
     # tar xvf EasyRSA-3.0.4.tgz && \
