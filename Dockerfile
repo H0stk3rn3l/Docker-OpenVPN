@@ -16,8 +16,11 @@ RUN \
     # ./easyrsa gen-req server nopass && \
     # sudo cp /pki/private/server.key /etc/openvpn/ && \
     # Clone the github folder to download conf.file and handle it
-     git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
-     mv Docker-OpenVPN/Config/server.conf /etc/openvpn/ && \
+    git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
+    mkdir /etc/openvpn/client_configs/ && \
+    mv Docker-OpenVPN/Config/server.conf /etc/openvpn/ && \
+    mv Docker-OpenVPN/Config/make_config.sh /etc/openvpn/client_configs/ && \
+    rm -rf /Docker-OpenVPN && \
     # gzip -d /etc/openvpn/server.conf.gz && \
     # Define openvpn configuration. Remember to call docker-server the .crt and .key
     #echo "\n \nauth SHA256" >> /etc/openvpn/server.conf && \
@@ -38,12 +41,8 @@ RUN \
     mkdir /etc/openvpn/keys && \
     cd /etc/openvpn/ && \
     openvpn --genkey --secret ta.key && \
+    chmod 777 /etc/openvpn/client_configs/make_config.sh && \
     # Client configuration infrastructure
-    mkdir -p /var/client-configs/ && \
-    cp /Docker-OpenVPN/Client-configuration/base.conf /var/client-configs/ && \
-    cp /Docker-OpenVPN/Client-configuration/make_config.sh /var/client-configs/ && \
-    rm -rf /Docker-OpenVPN && \
-    chmod 700 /var/client-configs/make_config.sh && \
     # Changing ufw rules 
     echo "START OPENVPN RULES \n# NAT table rules \n*nat \n:POSTROUTING ACCEPT [0:0] \n# Allow traffic from OpenVPN client to eth0 \n-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE \nCOMMIT \n# END OPENVPN RULES" >> /etc/ufw/before.rules && \
     sed -i 's|DEFAULT_FORWARD_POLICY="DROP"|DEFAULT_FORWARD_POLICY="ACCEPT"|g' /etc/default/ufw && \

@@ -2,9 +2,9 @@
 
 # First argument: Client identifier
 
-KEY_DIR=~/client-configs/keys
-OUTPUT_DIR=~/client-configs/files
-BASE_CONFIG=~/client-configs/base.conf
+KEY_DIR=/etc/openvpn/keys
+OUTPUT_DIR=/var/volume
+BASE_CONFIG=/etc/openvpn/server.conf
 
 cat ${BASE_CONFIG} \
     <(echo -e '<ca>') \
