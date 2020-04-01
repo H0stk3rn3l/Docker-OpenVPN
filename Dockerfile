@@ -43,7 +43,7 @@ RUN \
     #cp Docker-OpenVPN/Client_configuration/base.conf /var/client-configs/ && \
     #cp Docker-OpenVPN/Client_configuration/make_config.sh /var/client-configs/ && \
     #rm -rf /home/ubuntu/Docker-OpenVPN && \
-    chmod 700 /var/client-configs/make_config.sh && \
+    #chmod 700 /var/client-configs/make_config.sh && \
     # Changing ufw rules 
     echo "START OPENVPN RULES \n# NAT table rules \n*nat \n:POSTROUTING ACCEPT [0:0] \n# Allow traffic from OpenVPN client to eth0 \n-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE \nCOMMIT \n# END OPENVPN RULES" >> /etc/ufw/before.rules && \
     sed -i 's|DEFAULT_FORWARD_POLICY="DROP"|DEFAULT_FORWARD_POLICY="ACCEPT"|g' /etc/default/ufw && \
