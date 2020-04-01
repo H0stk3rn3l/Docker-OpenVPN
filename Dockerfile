@@ -42,6 +42,7 @@ RUN \
     mkdir /etc/openvpn/keys && \
     cd /etc/openvpn/ && \
     openvpn --genkey --secret ta.key && \
+    cp /etc/openvpn/ta.key /etc/openvpn/keys && \
     chmod 777 /etc/openvpn/client_configs/make_config.sh && \
     # Client configuration infrastructure
     # Changing ufw rules 
@@ -54,8 +55,12 @@ RUN \
 
 VOLUME ["/var/volume"]
 
+
+
+EXPOSE 1194/udp
+
+
+
 # docker build github.com/H0stk3rn3l/Docker-OpenVPN -t openvpn-v0.1
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
 # docker run -it --cap-add=NET_ADMIN -v /keys:/var/volume <image-name>
-
-
