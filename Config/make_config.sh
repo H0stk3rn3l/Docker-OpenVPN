@@ -4,7 +4,7 @@
 
 KEY_DIR=/etc/openvpn/keys
 OUTPUT_DIR=/var/volume
-BASE_CONFIG=/etc/openvpn/server.conf
+BASE_CONFIG=/etc/openvpn/base.conf
 
 cat ${BASE_CONFIG} \
     <(echo -e '<ca>') \

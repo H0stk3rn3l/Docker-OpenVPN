@@ -19,6 +19,7 @@ RUN \
     git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
     mkdir /etc/openvpn/client_configs/ && \
     mv Docker-OpenVPN/Config/server.conf /etc/openvpn/ && \
+    mv Docker-OpenVPN/Config/base.conf /etc/openvpn/ && \
     mv Docker-OpenVPN/Config/make_config.sh /etc/openvpn/client_configs/ && \
     rm -rf /Docker-OpenVPN && \
     # gzip -d /etc/openvpn/server.conf.gz && \
