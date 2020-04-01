@@ -19,7 +19,6 @@ RUN \
      git clone https://github.com/H0stk3rn3l/Docker-OpenVPN.git && \
      mv Docker-OpenVPN/Config/server.conf /etc/openvpn/ && \
     # gzip -d /etc/openvpn/server.conf.gz && \
-    
     # Define openvpn configuration. Remember to call docker-server the .crt and .key
     #echo "\n \nauth SHA256" >> /etc/openvpn/server.conf && \
     #echo "\nca /etc/openvpn/keys/ca.crt" >> /etc/openvpn/server.conf && \   
@@ -41,9 +40,9 @@ RUN \
     openvpn --genkey --secret ta.key && \
     # Client configuration infrastructure
     mkdir -p ~/client-configs/ && \
-    cp Docker-OpenVPN/Client_configuration/base.conf ~/client-configs/ && \
-    cp Docker-OpenVPN/Client_configuration/make_config.sh ~/client-configs/ && \
-    rm -rf /home/ubuntu/Docker-OpenVPN && \
+    #cp Docker-OpenVPN/Client_configuration/base.conf ~/client-configs/ && \
+    #cp Docker-OpenVPN/Client_configuration/make_config.sh ~/client-configs/ && \
+    #rm -rf /home/ubuntu/Docker-OpenVPN && \
     chmod 700 ~/client-configs/make_config.sh && \
     # Changing ufw rules 
     echo "START OPENVPN RULES \n# NAT table rules \n*nat \n:POSTROUTING ACCEPT [0:0] \n# Allow traffic from OpenVPN client to eth0 \n-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE \nCOMMIT \n# END OPENVPN RULES" >> /etc/ufw/before.rules && \
