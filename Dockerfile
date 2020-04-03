@@ -21,6 +21,7 @@ RUN \
     mv Docker-OpenVPN/Config/server.conf /etc/openvpn/ && \
     mv Docker-OpenVPN/Config/base.conf /etc/openvpn/ && \
     mv Docker-OpenVPN/Config/make_config.sh /etc/openvpn/client_configs/ && \
+    mv Docker-OpenVPN/Scripts/configure.sh /etc/openvpn/client_configs/ && \
     rm -rf /Docker-OpenVPN && \
     # gzip -d /etc/openvpn/server.conf.gz && \
     # Define openvpn configuration. Remember to call docker-server the .crt and .key
