@@ -46,7 +46,7 @@ RUN \
     openvpn --genkey --secret ta.key && \
     cp /etc/openvpn/ta.key /etc/openvpn/keys && \
     chmod 750 /etc/openvpn/client_configs/make_config.sh && \
-    hmod 750 /etc/openvpn/client_configs/configure.sh && \
+    chmod 750 /etc/openvpn/client_configs/configure.sh && \
     # Client configuration infrastructure
     # Changing ufw rules 
     echo "#START OPENVPN RULES \n# NAT table rules \n*nat \n:POSTROUTING ACCEPT [0:0] \n# Allow traffic from OpenVPN client to eth0 \n-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE \nCOMMIT \n# END OPENVPN RULES" >> /etc/ufw/before.rules && \
