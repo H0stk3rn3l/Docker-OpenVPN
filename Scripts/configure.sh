@@ -7,8 +7,10 @@ function datef() {
 }
 
 if [ ! -c /dev/net/tun ]; then
-    echo "$(datef) Creating tun/tap device."
+    mkdir -p /dev/net
     mknod /dev/net/tun c 10 200
+    chmod 600 /dev/net/tun
+    cat /dev/net/tun
 fi
 
 # Allow UDP traffic on port 1194.
