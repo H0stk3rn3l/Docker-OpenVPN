@@ -16,4 +16,17 @@ remote <my-server-1> 1194"
 ```
 ./configure.sh
 ```
-5. 
+5. Execute te following commands:
+```
+ufw allow OpenSSH
+ufw allow 1194/udp
+ufw disable
+ufw enable
+```
+6. Copy all the keys needed in /etc/openvpn/keys/. A volume is already mounted in /var/volume
+7. Create the .ovpn file. It shall have the same name keys created for the machine.
+```
+/etc/openvpn/client_configs/make_config.sh <name-file>
+```
+8. move thes file contained in /var/volume in the client that will use it
+
