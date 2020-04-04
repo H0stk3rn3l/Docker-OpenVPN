@@ -12,7 +12,7 @@ docker run -it --cap-add=NET_ADMIN -v /keys:/var/volume -p 1194:1194/udp -e HOST
 ```
 remote <my-server-1> 1194"
 ```
-4. Execute the .configure.sh file in /etc/openvpn/client_config
+4. Execute the .configure.sh file in /etc/openvpn/client_configs
 ```
 /etc/openvpn/client_configs/configure.sh
 ```
@@ -28,5 +28,9 @@ ufw enable
 ```
 /etc/openvpn/client_configs/make_config.sh <name-file>
 ```
-8. move thes file contained in /var/volume in the client that will use it
+8. Restart openvpn service
+```
+/etc/init.d/openvpn restart
+```
+9. move thes file contained in /var/volume in the client that will use it
 
